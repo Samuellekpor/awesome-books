@@ -15,9 +15,9 @@ let Book = function(title, author){
   this.title = title;
   this.author = author;
 
-  this.add = function(title, author){
-    let newbook = new Book(title, author);
-    books.push(newbook);
+  this.add = function(title,author){
+   let book= new Book(title,author);
+    books.push(book);
   }
 
   this.remove = function(book){
@@ -27,7 +27,11 @@ let Book = function(title, author){
   }
 }
 
-let bookContainer = document.querySelector('.book-container')
+let bookContainer = document.querySelector('.book-container');
+let addBtn = document.querySelector('.add-btn');
+let titleInput = document.querySelector('#title');
+let authorInput = document.querySelector('#author');
+
 
 function displayBook(books) {
   books.forEach((book) => {
@@ -41,4 +45,11 @@ function displayBook(books) {
   bookContainer.innerHTML = bookDiv;
 } 
 
+addBtn.addEventListener('click', function(){
+  let bk= new Book();
+  bk.add("title","author");
+  console.log(books);
+});
+
+console.log(books);
 displayBook(books);
