@@ -9,6 +9,8 @@ let books = [
   }
 ];
 
+let bookDiv = ""
+
 let Book = function(title, author){
   this.title = title;
   this.author = author;
@@ -24,3 +26,19 @@ let Book = function(title, author){
     })
   }
 }
+
+let bookContainer = document.querySelector('.book-container')
+
+function displayBook(books) {
+  books.forEach((book) => {
+    bookDiv +=
+    ` <div class="book">
+    <p class="book-title">${book.title}</p>
+    <p class="book-author">${book.author}</p>
+    <button class="button">Remove</button><hr>
+  </div>`;
+  });
+  bookContainer.innerHTML = bookDiv;
+} 
+
+displayBook(books);
