@@ -15,20 +15,21 @@ let Book = function(title, author){
   this.title = title;
   this.author = author;
 
-  this.add = function(title,author){
-   let book= new Book(title,author);
+  this.add = function(title, author){
+   let book= new Book(title, author);
     books.push(book);
   }
 
-  this.remove = function(book){
+  this.remove = function(title, author){
     books = books.filter((abook)=> {
-      return book.title !== abook.title && book.author !== abook.author;
+      return abook.title !== title && abook.author !== author;
     })
   }
 }
 
 let bookContainer = document.querySelector('.book-container');
 let addBtn = document.querySelector('.add-btn');
+let removeBtn = document.querySelector('.button');
 let titleInput = document.querySelector('#title');
 let authorInput = document.querySelector('#author');
 
@@ -47,9 +48,19 @@ function displayBook(books) {
 
 addBtn.addEventListener('click', function(){
   let bk= new Book();
-  bk.add("title","author");
-  console.log(books);
+  bk.add(titleInput.value,authorInput.value);
+  let booksStr = JSON.stringify(books);
+  localStorage.setItem('books', booksStr)
+  window.location.reload();
 });
 
-console.log(books);
+removeBtn.addEventListener('click', function(){
+  
+})
+
+if(localStorage.getItem('books') === null) {
+  books = [];
+} else {
+  books = JSON.parse(localStorage.getItem('books'));
+}
 displayBook(books);
