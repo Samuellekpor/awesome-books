@@ -1,46 +1,43 @@
 let books = [];
 
-let Book = function (title, author) {
+const Book = function (title, author) {
   this.title = title;
   this.author = author;
 
   this.add = function (title, author) {
-    let book = new Book(title, author);
+    const book = new Book(title, author);
     books.push(book);
   };
 
   this.remove = function (obj) {
-    let localBooks = JSON.parse(localStorage.getItem("books"));
-    localBooks = localBooks.filter((abook) => {
-      return abook.title !== obj.title || abook.author !== obj.author;
-    });
-    localStorage.setItem("books", JSON.stringify(localBooks));
+    let localBooks = JSON.parse(localStorage.getItem('books'));
+    localBooks = localBooks.filter((b) => b.title !== obj.title || b.author !== obj.author);
+    localStorage.setItem('books', JSON.stringify(localBooks));
     books = localBooks;
-    console.log(books);
   };
 };
 
-let bookContainer = document.querySelector(".book-container");
-let addBtn = document.querySelector(".add-btn");
-let titleInput = document.querySelector("#title");
-let authorInput = document.querySelector("#author");
+const bookContainer = document.querySelector('.book-container');
+const addBtn = document.querySelector('.add-btn');
+const titleInput = document.querySelector('#title');
+const authorInput = document.querySelector('#author');
 
-let bk = new Book();
+const bk = new Book();
 
 function displayBook(books) {
   books.forEach((book) => {
-    let bookDiv = document.createElement("div");
-    let hr = document.createElement("hr");
-    bookDiv.className = "book";
-    let pTitle = document.createElement("p");
-    let pAuthor = document.createElement("p");
-    let removeBtn = document.createElement("button");
-    pTitle.className = "book-title";
-    pAuthor.className = "book-author";
-    removeBtn.className = "remove-btn";
+    const bookDiv = document.createElement('div');
+    const hr = document.createElement('hr');
+    bookDiv.className = 'book';
+    const pTitle = document.createElement('p');
+    const pAuthor = document.createElement('p');
+    const removeBtn = document.createElement('button');
+    pTitle.className = 'book-title';
+    pAuthor.className = 'book-author';
+    removeBtn.className = 'remove-btn';
     pTitle.textContent = book.title;
     pAuthor.textContent = book.author;
-    removeBtn.textContent = "Remove";
+    removeBtn.textContent = 'Remove';
     bookDiv.appendChild(pTitle);
     bookDiv.appendChild(pAuthor);
     bookDiv.appendChild(removeBtn);
@@ -49,34 +46,34 @@ function displayBook(books) {
   });
 }
 
-addBtn.addEventListener("click", function () {
-  let bk2 = new Book();
+addBtn.addEventListener('click', () => {
+  const bk2 = new Book();
   bk2.add(titleInput.value, authorInput.value);
-  let booksStr = JSON.stringify(books);
-  localStorage.setItem("books", booksStr);
+  const booksStr = JSON.stringify(books);
+  localStorage.setItem('books', booksStr);
   window.location.reload();
 });
 
-if (localStorage.getItem("books") === null) {
+if (localStorage.getItem('books') === null) {
   books = [];
 } else {
-  books = JSON.parse(localStorage.getItem("books"));
+  books = JSON.parse(localStorage.getItem('books'));
 }
 
 displayBook(books);
 
-let removeButton = document.querySelectorAll(".remove-btn");
+const removeButton = document.querySelectorAll('.remove-btn');
 
 removeButton.forEach((btn) => {
-  btn.addEventListener("click", function (e) {
-    let author = btn.previousElementSibling;
-    let bookTitle = author.previousElementSibling;
-    let obj = {
+  btn.addEventListener('click', () => {
+    const author = btn.previousElementSibling;
+    const bookTitle = author.previousElementSibling;
+    const obj = {
       title: bookTitle.textContent,
       author: author.textContent,
     };
     books = bk.remove(obj);
-    let parent = btn.parentElement;
+    const parent = btn.parentElement;
     parent.remove();
     window.location.reload();
   });
