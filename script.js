@@ -7,6 +7,7 @@ class Books {
   books = [];
 
   add(title, author) {
+    const book = new Books(title, author);
     books.push(book);
   }
 
@@ -16,7 +17,6 @@ class Books {
     localStorage.setItem('books', JSON.stringify(localBooks));
     books = localBooks;
   }
-
 
 
 }
