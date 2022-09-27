@@ -1,28 +1,31 @@
-let books = [];
+class Books {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
 
-const Book = function (title, author) {
-  this.title = title;
-  this.author = author;
+  books = [];
 
-  this.add = function (title, author) {
-    const book = new Book(title, author);
+  add(title, author) {
     books.push(book);
-  };
+  }
 
-  this.remove = function (obj) {
+  remove(obj) {
     let localBooks = JSON.parse(localStorage.getItem('books'));
     localBooks = localBooks.filter((b) => b.title !== obj.title || b.author !== obj.author);
     localStorage.setItem('books', JSON.stringify(localBooks));
     books = localBooks;
-  };
-};
+  }
 
+
+
+}
 const bookContainer = document.querySelector('.book-container');
 const addBtn = document.querySelector('.add-btn');
 const titleInput = document.querySelector('#title');
 const authorInput = document.querySelector('#author');
 
-const bk = new Book();
+const bk = new Books;
 
 function displayBook(books) {
   books.forEach((book) => {
@@ -47,7 +50,7 @@ function displayBook(books) {
 }
 
 addBtn.addEventListener('click', () => {
-  const bk2 = new Book();
+  const bk2 = new Books;
   bk2.add(titleInput.value, authorInput.value);
   const booksStr = JSON.stringify(books);
   localStorage.setItem('books', booksStr);
