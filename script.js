@@ -17,15 +17,13 @@ class Books {
     localStorage.setItem('books', JSON.stringify(localBooks));
     books = localBooks;
   }
-
-
 }
 const bookContainer = document.querySelector('.book-container');
 const addBtn = document.querySelector('.add-btn');
 const titleInput = document.querySelector('#title');
 const authorInput = document.querySelector('#author');
 
-const bk = new Books;
+const bk = new Books();
 
 function displayBook(books) {
   books.forEach((book) => {
@@ -35,7 +33,7 @@ function displayBook(books) {
     const removeBtn = document.createElement('button');
     bookInfo.className = 'book-info';
     removeBtn.className = 'remove-btn';
-    bookInfo.innerHTML = '"<strong class = "book-title">' + book.title + '</strong>" by <strong class = "book-author">'+ book.author+'</strong>';
+    bookInfo.innerHTML = `"<strong class = "book-title">${book.title}</strong>" by <strong class = "book-author">${book.author}</strong>`;
     removeBtn.textContent = 'Remove';
     bookDiv.appendChild(bookInfo);
     bookDiv.appendChild(removeBtn);
@@ -44,7 +42,7 @@ function displayBook(books) {
 }
 
 addBtn.addEventListener('click', () => {
-  const bk2 = new Books;
+  const bk2 = new Books();
   bk2.add(titleInput.value, authorInput.value);
   const booksStr = JSON.stringify(books);
   localStorage.setItem('books', booksStr);
