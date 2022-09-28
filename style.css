@@ -124,6 +124,7 @@ input {
   flex-direction: column;
 }
 
+
 .contact {
   display: flex;
   align-items: center;
@@ -155,4 +156,12 @@ input {
 .copyright-text {
   font-size: 20px;
   font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
 }
