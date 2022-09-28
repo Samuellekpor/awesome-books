@@ -85,34 +85,32 @@ removeButton.forEach((btn) => {
   });
 });
 
-let theDate = new Date().toUTCString();
+const theDate = new Date().toUTCString();
 
-let dateDiv = document.querySelector('.date');
+const dateDiv = document.querySelector('.date');
 dateDiv.innerHTML = theDate;
 
-let listLink = document.getElementById("list-link");
-let listNew = document.getElementById("list-new");
-let listContact = document.getElementById("list-contact");
-let bookList = document.querySelector(".book-list")
-let addNew = document.querySelector(".add-new")
-let contact = document.querySelector(".contact")
+const listLink = document.getElementById('list-link');
+const listNew = document.getElementById('list-new');
+const listContact = document.getElementById('list-contact');
+const bookList = document.querySelector('.book-list');
+const addNew = document.querySelector('.add-new');
+const contact = document.querySelector('.contact');
 
+listLink.addEventListener('click', () => {
+  bookList.className = 'show';
+  addNew.className = 'hide';
+  contact.className = 'hide';
+});
 
-listLink.addEventListener("click", function (){
-  bookList.className = "show"
-  addNew.className = "hide"
-  contact.className = "hide"
-})
+listNew.addEventListener('click', () => {
+  bookList.className = 'hide';
+  addNew.className = 'show';
+  contact.className = 'hide';
+});
 
-listNew.addEventListener("click", function (){
-  bookList.className = "hide"
-  addNew.className = "show"
-  contact.className = "hide"
-})
-
-listContact.addEventListener("click", function (){
-  bookList.className = "hide"
-  addNew.className = "hide"
-  contact.className = "show"
-})
-
+listContact.addEventListener('click', () => {
+  bookList.className = 'hide';
+  addNew.className = 'hide';
+  contact.className = 'show';
+});

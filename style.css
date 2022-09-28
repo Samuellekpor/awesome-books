@@ -33,6 +33,14 @@
   color: #2f00ff;
 }
 
+.link a:focus {
+  color: #2f00ff;
+}
+
+.link a:active {
+  color: #2f00ff;
+}
+
 .separator2 {
   background-color: #0f0050;
   height: 25px;
@@ -42,9 +50,12 @@
 }
 
 .date {
-  position: absolute;
-  right: 20px;
+  display: flex;
+  justify-content: flex-end;
   font-size: 20px;
+  padding-right: 20px;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .big-container {
@@ -63,7 +74,6 @@
   border: 2px #000 solid;
   padding: 5px;
   margin: 25px;
-  
 }
 
 .book {
@@ -79,14 +89,6 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
   background-color: #ddd;
-}
-
-.separator {
-  background-color: #000;
-  height: 2px;
-  width: 120px;
-  display: block;
-  margin: 15px auto;
 }
 
 .add-title {
@@ -124,24 +126,32 @@ input {
   flex-direction: column;
 }
 
-
 .contact {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
 }
 
 .title {
   font-weight: bold;
+  text-align: center;
 }
 
 .contact-body {
-  margin-top: 40px;
+  margin: 0 auto;
 }
 
 .contact-details {
   margin-top: 40px;
   margin-left: 52px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .copyright {
@@ -164,4 +174,6 @@ input {
 
 .show {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
