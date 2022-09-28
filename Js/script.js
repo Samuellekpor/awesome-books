@@ -84,3 +84,8 @@ removeButton.forEach((btn) => {
     window.location.reload();
   });
 });
+
+let theDate = new Date().toUTCString();
+
+let dateDiv = document.querySelector('.date');
+dateDiv.innerHTML = theDate;

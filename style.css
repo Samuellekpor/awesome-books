@@ -7,7 +7,7 @@
 .nav-bar {
   display: flex;
   justify-content: space-between;
-  border: #000 2px solid;
+  border: #000 3px solid;
   margin: 15px;
   padding: 5px;
   align-items: center;
@@ -39,6 +39,12 @@
   width: 2px;
   display: block;
   margin: auto;
+}
+
+.date {
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
 }
 
 .big-container {
