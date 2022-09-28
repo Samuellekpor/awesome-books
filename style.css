@@ -62,7 +62,8 @@
 .book-container {
   border: 2px #000 solid;
   padding: 5px;
-  margin: 5px;
+  margin: 25px;
+  
 }
 
 .book {
@@ -110,4 +111,48 @@ input {
 .add-btn,
 .remove-btn {
   padding: 8px;
+}
+
+.add-new {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.book-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.contact-body {
+  margin-top: 40px;
+}
+
+.contact-details {
+  margin-top: 40px;
+  margin-left: 52px;
+}
+
+.copyright {
+  display: flex;
+  justify-content: space-between;
+  border: #000 3px solid;
+  margin: 15px;
+  padding: 5px;
+  align-items: center;
+}
+
+.copyright-text {
+  font-size: 20px;
+  font-weight: bold;
 }
