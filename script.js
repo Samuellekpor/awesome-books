@@ -29,22 +29,16 @@ const bk = new Books;
 
 function displayBook(books) {
   books.forEach((book) => {
-    const bookDiv = document.createElement('div');
-    const hr = document.createElement('hr');
+    const bookDiv = document.createElement('tr');
     bookDiv.className = 'book';
-    const pTitle = document.createElement('p');
-    const pAuthor = document.createElement('p');
+    const bookInfo = document.createElement('td');
     const removeBtn = document.createElement('button');
-    pTitle.className = 'book-title';
-    pAuthor.className = 'book-author';
+    bookInfo.className = 'book-info';
     removeBtn.className = 'remove-btn';
-    pTitle.textContent = book.title;
-    pAuthor.textContent = book.author;
+    bookInfo.innerHTML = '"<strong class = "book-title">' + book.title + '</strong>" by <strong class = "book-author">'+ book.author+'</strong>';
     removeBtn.textContent = 'Remove';
-    bookDiv.appendChild(pTitle);
-    bookDiv.appendChild(pAuthor);
+    bookDiv.appendChild(bookInfo);
     bookDiv.appendChild(removeBtn);
-    bookDiv.appendChild(hr);
     bookContainer.appendChild(bookDiv);
   });
 }
@@ -69,8 +63,8 @@ const removeButton = document.querySelectorAll('.remove-btn');
 
 removeButton.forEach((btn) => {
   btn.addEventListener('click', () => {
-    const author = btn.previousElementSibling;
-    const bookTitle = author.previousElementSibling;
+    const bookTitle = btn.previousElementSibling.firstElementChild;
+    const author = bookTitle.nextElementSibling;
     const obj = {
       title: bookTitle.textContent,
       author: author.textContent,
