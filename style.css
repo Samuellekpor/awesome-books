@@ -64,6 +64,7 @@ input {
   width: 350px;
 }
 
-.add-btn, .remove-btn {
+.add-btn,
+.remove-btn {
   padding: 8px;
 }

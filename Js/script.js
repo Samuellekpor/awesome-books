@@ -1,29 +1,47 @@
+import Book from './Book.js';
+
 class Books {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
+  constructor() {
+    this.books = [];
   }
 
-  books = [];
-
   add(title, author) {
-    const book = new Books(title, author);
-    books.push(book);
+    const book = new Book(title, author);
+    this.books.push(book);
+    return book;
+  }
+
+  set assignBook(books) {
+    this.books = books;
+  }
+
+  get allBooks() {
+    return this.books;
   }
 
   remove(obj) {
     let localBooks = JSON.parse(localStorage.getItem('books'));
     localBooks = localBooks.filter((b) => b.title !== obj.title || b.author !== obj.author);
     localStorage.setItem('books', JSON.stringify(localBooks));
-    books = localBooks;
+    this.books = localBooks;
+    return this.books;
   }
 }
+
 const bookContainer = document.querySelector('.book-container');
 const addBtn = document.querySelector('.add-btn');
 const titleInput = document.querySelector('#title');
 const authorInput = document.querySelector('#author');
 
 const bk = new Books();
+
+if (localStorage.getItem('books') === null) {
+  bk.assignBook = [];
+} else {
+  bk.assignBook = JSON.parse(localStorage.getItem('books'));
+}
+
+const books = bk.allBooks;
 
 function displayBook(books) {
   books.forEach((book) => {
@@ -42,18 +60,11 @@ function displayBook(books) {
 }
 
 addBtn.addEventListener('click', () => {
-  const bk2 = new Books();
-  bk2.add(titleInput.value, authorInput.value);
+  bk.add(titleInput.value, authorInput.value);
   const booksStr = JSON.stringify(books);
   localStorage.setItem('books', booksStr);
   window.location.reload();
 });
-
-if (localStorage.getItem('books') === null) {
-  books = [];
-} else {
-  books = JSON.parse(localStorage.getItem('books'));
-}
 
 displayBook(books);
 
@@ -67,7 +78,7 @@ removeButton.forEach((btn) => {
       title: bookTitle.textContent,
       author: author.textContent,
     };
-    books = bk.remove(obj);
+    bk.assignBook = bk.remove(obj);
     const parent = btn.parentElement;
     parent.remove();
     window.location.reload();
