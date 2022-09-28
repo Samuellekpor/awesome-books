@@ -4,6 +4,43 @@
   box-sizing: border-box;
 }
 
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  border: #000 2px solid;
+  margin: 15px;
+  padding: 5px;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+
+.link {
+  margin: 0 20px;
+}
+
+.link a {
+  text-decoration: none;
+  color: #000;
+}
+
+.link a:hover {
+  color: #2f00ff;
+}
+
+.separator2 {
+  background-color: #0f0050;
+  height: 25px;
+  width: 2px;
+  display: block;
+  margin: auto;
+}
+
 .big-container {
   display: flex;
   flex-direction: column;
