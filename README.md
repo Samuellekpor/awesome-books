@@ -64,15 +64,15 @@ npx eslint .
 
 👤 **Gabriel Nunekpeku**
 
-- GitHub: [@githubhandle](https://github.com/nunegabriel)
+- GitHub: [@nunegabriel](https://github.com/nunegabriel)
 - Twitter: [@twitterhandle](https://twitter.com/#)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/#)
 
 👤 **Yetemegn Lemma**
 
-- GitHub: [@githubhandle](https://github.com/yetemegn-telaye)
-- Twitter: [@twitterhandle](https://twitter.com/Yetemegn19)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/yetemegn-telaye-81370920a/)
+- GitHub: [@yetemegn-telaye](https://github.com/yetemegn-telaye)
+- Twitter: [@Yetemegn19](https://twitter.com/Yetemegn19)
+- LinkedIn: [yetemegn-telaye-81370920a](https://www.linkedin.com/in/yetemegn-telaye-81370920a/)
 
 ## Show your support
 
